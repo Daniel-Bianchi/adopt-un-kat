@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,5 +41,29 @@ public class KittenController {
     public Kitten create(@RequestBody Kitten newKitten) {
         return kittenRepository.save(newKitten);
     }
+
+    //Modifier un chat
+    @PutMapping("/{id}")
+    public Kitten update(@PathVariable int id, @RequestBody Kitten updateKitten) {
+        Kitten kittenToUpdate = kittenRepository.findById(id).get(); //On récupère le chat que l'on veut modifier
+        //Modifier l'age
+        kittenToUpdate.setAge(updateKitten.getAge());
+        //Modifier le nom
+        kittenToUpdate.setName(updateKitten.getName());
+        //Modifier la couleur
+        kittenToUpdate.setColor(updateKitten.getColor());
+        //Modifier la race
+        kittenToUpdate.setRace(updateKitten.getRace());
+        //Modifier le genre
+        kittenToUpdate.setGenre(updateKitten.getGenre());
+        //Modfier l'image
+        kittenToUpdate.setImageUrl(updateKitten.getImageUrl());
+
+        return kittenRepository.save(kittenToUpdate);
+    }
+
+
+    //Supprimer un chat
+
     
 }
