@@ -13,6 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//Entitée Kitten
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
