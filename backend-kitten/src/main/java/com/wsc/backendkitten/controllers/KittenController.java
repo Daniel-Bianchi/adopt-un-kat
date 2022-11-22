@@ -64,7 +64,7 @@ public class KittenController {
     }
 
     //Supprimer un chat
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public boolean delete(@PathVariable int id) {
         kittenRepository.deleteById(id);
         return true;
