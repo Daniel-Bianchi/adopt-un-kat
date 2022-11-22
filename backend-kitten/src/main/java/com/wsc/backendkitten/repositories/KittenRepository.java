@@ -10,4 +10,5 @@ import com.wsc.backendkitten.entities.Kitten;
 @Repository
 public interface KittenRepository extends JpaRepository<Kitten, Integer> {
     public List<Kitten> findAllKittenByIsAdopted(Boolean isAdopted);
+
 }

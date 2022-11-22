@@ -43,6 +43,16 @@ public class KittenController {
         return kittenRepository.save(newKitten);
     }
 
+    //Adopter un chat
+    @PostMapping
+    public Kitten adopKitten(int id) {
+        Kitten kittenToAdopt = kittenRepository.findById(id).get();
+
+        kittenToAdopt.setIsAdopted(true);
+
+        return kittenRepository.save(kittenToAdopt);
+    }
+
     //Modifier un chat
     @PutMapping("/{id}")
     public Kitten update(@PathVariable int id, @RequestBody Kitten updateKitten) {
