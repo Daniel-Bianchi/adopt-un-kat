@@ -44,9 +44,9 @@ public class KittenController {
     }
 
     //Adopter un chat
-    @PutMapping
-    public Kitten create(int id) {
-        Kitten kittenToAdopt = kittenRepository.findById(id).get();
+    @PutMapping("/adopt")
+    public Kitten create(int catId) {
+        Kitten kittenToAdopt = kittenRepository.findById(catId).get();
 
         kittenToAdopt.setIsAdopted(true);
 
