@@ -1,5 +1,8 @@
 package com.wsc.backendkitten.entities;
 
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +29,9 @@ public class Kitten {
     private String color;
     private String race;
     private String genre;
-    private String imageUrl;
+
+    @ElementCollection
+    private List<String> imageUrls;
 
     private Boolean isAdopted;
     

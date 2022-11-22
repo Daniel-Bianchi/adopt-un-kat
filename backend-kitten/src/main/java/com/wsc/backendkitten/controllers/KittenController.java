@@ -1,7 +1,6 @@
 package com.wsc.backendkitten.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,8 +32,8 @@ public class KittenController {
 
     //Un chat par son id
     @GetMapping("/{id}")
-    public Optional<Kitten> show(@PathVariable int id) {
-        return kittenRepository.findById(id);
+    public Kitten show(@PathVariable int id) {
+        return kittenRepository.findById(id).get();
     }
 
     //Ajouter un chat
@@ -44,8 +43,8 @@ public class KittenController {
     }
 
     //Adopter un chat
-    @PutMapping("/adopt")
-    public Kitten create(int catId) {
+    @PostMapping("/{catId}/adopt")
+    public Kitten adopt(@PathVariable int catId) {
         Kitten kittenToAdopt = kittenRepository.findById(catId).get();
 
         kittenToAdopt.setIsAdopted(true);
@@ -68,7 +67,7 @@ public class KittenController {
         //Modifier le genre
         kittenToUpdate.setGenre(updateKitten.getGenre());
         //Modfier l'image
-        kittenToUpdate.setImageUrl(updateKitten.getImageUrl());
+        kittenToUpdate.setImageUrls(updateKitten.getImageUrls());
 
         return kittenRepository.save(kittenToUpdate);
     }
