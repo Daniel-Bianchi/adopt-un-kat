@@ -20,8 +20,8 @@ public class KittenController {
     KittenRepository kittenRepository;
 
     @GetMapping
-    public List<Kitten> findAllTotoKittenByIsAdopted(Boolean isAdopted) {
-        return this.kittenRepository.findAllKittenByIsAdopted(isAdopted = true); 
+    public List<Kitten> findAllKittenByIsAdopted(Boolean isAdopted) {
+        return this.kittenRepository.findAllKittenByIsAdopted(isAdopted); 
     }
     
 }
