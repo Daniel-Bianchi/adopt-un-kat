@@ -26,7 +26,7 @@ public class Kitten {
     private String color;
     private String race;
     private String genre;
-    private String[] imageUrls;
+    private String imageUrl;
 
     private Boolean isAdopted;
     
